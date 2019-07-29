@@ -10,7 +10,8 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Entity(name = "person")
+@Entity
+@Table(name = "person")
 public class PersonEntity {
 
     @Id
@@ -19,7 +20,7 @@ public class PersonEntity {
 
     private String name;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "person_hobby",
             joinColumns = @JoinColumn(name = "person_id"),
