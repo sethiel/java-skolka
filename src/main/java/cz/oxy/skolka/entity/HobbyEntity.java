@@ -21,5 +21,9 @@ public class HobbyEntity {
     private String name;
 
     @ManyToMany
+    @JoinTable(
+            name = "person_hobby",
+            joinColumns = @JoinColumn(name = "hobby_id"),
+            inverseJoinColumns = @JoinColumn(name = "person_id"))
     private Set<PersonEntity> persons;
 }
