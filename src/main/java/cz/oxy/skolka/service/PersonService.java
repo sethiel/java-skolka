@@ -26,14 +26,6 @@ public class PersonService {
 
     @Transactional(readOnly = true)
     public List<PersonDto> getAllPersons() {
-        List<PersonDto> list1 = new ArrayList<>();
-        List<? extends PersonDto> list2 = new ArrayList<>();
-
-        list1.add(new PersonDto() {});
-        list2.add(new PersonDto() {});
-
-
-
         return personDao.findAll().stream()
                 .map(x -> convert(x))
                 .collect(Collectors.toList());
@@ -47,8 +39,6 @@ public class PersonService {
 
         return convert(personDao.save(entity));
     }
-
-
 
     private PersonDto convert(PersonEntity entity) {
         return PersonDto.builder()
