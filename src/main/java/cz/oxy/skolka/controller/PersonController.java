@@ -25,9 +25,7 @@ public class PersonController {
     @GetMapping
     public List<PersonDto> getAllPersons() {
         return personService.getAllPersons();
-        return personService.getSOmething();
     }
-
 
     @PostMapping
     public PersonDto createPerson(@RequestBody PersonDto person) {
