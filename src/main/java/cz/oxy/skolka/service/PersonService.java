@@ -1,7 +1,9 @@
 package cz.oxy.skolka.service;
 
 import cz.oxy.skolka.dao.PersonDao;
+import cz.oxy.skolka.dto.HobbyDto;
 import cz.oxy.skolka.dto.PersonDto;
+import cz.oxy.skolka.entity.HobbyEntity;
 import cz.oxy.skolka.entity.PersonEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -44,6 +46,20 @@ public class PersonService {
         return PersonDto.builder()
                 .id(entity.getId())
                 .name(entity.getName())
+                .hobbies(
+                        entity.getHobbies()
+                        .stream()
+                                .map(x -> convert(x))
+                                .collect(Collectors.toSet())
+                )
                 .build();
     }
+
+    private HobbyDto convert(HobbyEntity entity) {
+        return HobbyDto.builder()
+                .id(entity.getId())
+                .name(entity.getName())
+                .build();
+    }
+
 }

@@ -10,8 +10,8 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Entity(name = "person")
-public class PersonEntity {
+@Entity(name = "hobby")
+public class HobbyEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,9 +20,5 @@ public class PersonEntity {
     private String name;
 
     @ManyToMany
-    @JoinTable(
-            name = "person_hobby",
-            joinColumns = @JoinColumn(name = "person_id"),
-            inverseJoinColumns = @JoinColumn(name = "hobby_id"))
-    private Set<HobbyEntity> hobbies;
+    private Set<PersonEntity> persons;
 }
