@@ -22,6 +22,8 @@ public class BasketEntity {
     @JoinColumn(name = "person_id")
     private PersonEntity person;
 
-    @OneToMany
+    @OneToMany(
+            mappedBy = "basket"
+    )
     private List<BasketRowEntity> basketRows;
 }
