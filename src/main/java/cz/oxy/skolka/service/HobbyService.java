@@ -1,7 +1,6 @@
 package cz.oxy.skolka.service;
 
 import cz.oxy.skolka.dao.HobbyDao;
-import cz.oxy.skolka.dao.PersonDao;
 import cz.oxy.skolka.dto.HobbyDto;
 import cz.oxy.skolka.dto.PersonDto;
 import cz.oxy.skolka.entity.HobbyEntity;

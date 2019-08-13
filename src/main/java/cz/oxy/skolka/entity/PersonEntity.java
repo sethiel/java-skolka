@@ -3,6 +3,7 @@ package cz.oxy.skolka.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -26,4 +27,7 @@ public class PersonEntity {
             joinColumns = @JoinColumn(name = "person_id"),
             inverseJoinColumns = @JoinColumn(name = "hobby_id"))
     private Set<HobbyEntity> hobbies;
+
+    @OneToMany(mappedBy = "person")
+    private List<BasketEntity> baskets;
 }
