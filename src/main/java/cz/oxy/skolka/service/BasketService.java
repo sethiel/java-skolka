@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
 import java.util.stream.Collectors;
 
 @Service
@@ -16,7 +17,7 @@ public class BasketService {
 
     @Transactional(readOnly = true)
     public BasketDto getBasket(int id) {
-        BasketEntity basketEntity = basketDao.getOne(id);
+        final BasketEntity basketEntity = basketDao.getOne(id);
         return convert(basketEntity);
     }
 

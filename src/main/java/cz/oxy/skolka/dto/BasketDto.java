@@ -2,6 +2,8 @@ package cz.oxy.skolka.dto;
 
 import lombok.*;
 
+import java.math.BigDecimal;
+import java.util.Collection;
 import java.util.List;
 
 @Getter
@@ -9,6 +11,11 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class BasketDto {
+public class BasketDto implements PricedCollection {
     private List<BasketRowDto> basketRows;
+
+    @Override
+    public Collection<BasketRowDto> getRows() {
+        return basketRows;
+    }
 }
